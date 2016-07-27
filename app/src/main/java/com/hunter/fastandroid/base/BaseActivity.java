@@ -21,7 +21,8 @@ import butterknife.ButterKnife;
 
 public abstract class BaseActivity extends FragmentActivity implements IBaseView {
     private ProgressDialog mProgressDialog;
-    FragmentManager fragmentManager;
+    private FragmentManager mFragmentManager;
+    private Toast mToast;
 
     /**
      * 初始化布局
@@ -141,9 +142,14 @@ public abstract class BaseActivity extends FragmentActivity implements IBaseView
 
     @Override
     public void showToast(String msg) {
-        if (!isFinishing()) {
-            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+        if (mToast == null) {
+            mToast = Toast.makeText(this,
+                    msg,
+                    Toast.LENGTH_SHORT);
+        } else {
+            mToast.setText(msg);
         }
+        mToast.show();
     }
 
     @Override
@@ -163,10 +169,10 @@ public abstract class BaseActivity extends FragmentActivity implements IBaseView
      * @return
      */
     public FragmentManager getBaseFragmentManager() {
-        if (fragmentManager == null) {
-            fragmentManager = getSupportFragmentManager();
+        if (mFragmentManager == null) {
+            mFragmentManager = getSupportFragmentManager();
         }
-        return fragmentManager;
+        return mFragmentManager;
     }
 
     /**
