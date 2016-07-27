@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.util.DisplayMetrics;
+
+import com.hunter.fastandroid.BuildConfig;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.cache.memory.impl.LruMemoryCache;
@@ -13,6 +15,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.utils.StorageUtils;
+import com.socks.library.KLog;
 import com.squareup.leakcanary.LeakCanary;
 
 import java.io.File;
@@ -49,6 +52,9 @@ public class BaseApplication extends Application {
 
         initImageLoader();
         initScreenSize();
+
+        //BUG调试信息
+        KLog.init(BuildConfig.DEBUG);
     }
 
     /**

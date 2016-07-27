@@ -2,11 +2,11 @@ package com.hunter.fastandroid.net;
 
 import android.content.Context;
 
-import com.hunter.fastandroid.utils.Logger;
 import com.hunter.fastandroid.utils.NetUtils;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.socks.library.KLog;
 
 import cz.msebera.android.httpclient.HttpEntity;
 import java.nio.charset.StandardCharsets;
@@ -192,11 +192,11 @@ public class AsyncHttpNetCenter {
         }
 
         if (requestParams != null) {
-            Logger.i(context, "HTTP-Request,tools：Async-Http");
-            Logger.i(context, "HTTP-Request,url：" + url);
-            Logger.i(context, "HTTP-Request,mothed：" + (type == GET ? "GET" : "POST"));
-            Logger.i(context, "HTTP-Request,header：" + baseHeader.toString());
-            Logger.i(context, "HTTP-Request,params：" + requestParams.toString());
+            KLog.i("HTTP-Request,tools：Async-Http");
+            KLog.i("HTTP-Request,url：" + url);
+            KLog.i("HTTP-Request,mothed：" + (type == GET ? "GET" : "POST"));
+            KLog.i("HTTP-Request,header：" + baseHeader.toString());
+            KLog.i("HTTP-Request,params：" + requestParams.toString());
 
             // 根据传入类型调用不同请求方法,可自行扩展
             // 传入Context以便与生命周期联动
@@ -215,12 +215,12 @@ public class AsyncHttpNetCenter {
                     break;
             }
         } else if (entity != null) {
-            Logger.i(context, "HTTP-Request,tools：Async-Http");
-            Logger.i(context, "HTTP-Request,url：" + url);
-            Logger.i(context, "HTTP-Request,mothed：" + (type == GET ? "GET" : "POST"));
-            Logger.i(context, "HTTP-Request,header：" + baseHeader.toString());
-            Logger.i(context, "HTTP-Request,params：" + entity.toString());
-            Logger.i(context, "HTTP-Request,content-Type：" + contentType);
+            KLog.i( "HTTP-Request,tools：Async-Http");
+            KLog.i( "HTTP-Request,url：" + url);
+            KLog.i( "HTTP-Request,mothed：" + (type == GET ? "GET" : "POST"));
+            KLog.i( "HTTP-Request,header：" + baseHeader.toString());
+            KLog.i( "HTTP-Request,params：" + entity.toString());
+            KLog.i( "HTTP-Request,content-Type：" + contentType);
 
             // 根据传入类型调用不同请求方法,可自行扩展
             // 传入Context以便与生命周期联动

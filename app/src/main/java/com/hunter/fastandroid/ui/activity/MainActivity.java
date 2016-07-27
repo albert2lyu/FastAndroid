@@ -19,6 +19,7 @@ import com.hunter.fastandroid.vo.request.QueryParameter;
 import com.hunter.fastandroid.vo.response.QueryResult;
 import com.hunter.fastandroid.vo.response.ResultInfo;
 import com.hunter.fastandroid.vo.response.UserInfo;
+import com.socks.library.KLog;
 
 import butterknife.Bind;
 
@@ -43,6 +44,13 @@ public class MainActivity extends BaseActivity implements ITestView {
     @Override
     public void initView() {
         titleBar.setTitle("测试页面");
+
+        KLog.v("KLog测试");
+        KLog.w("KLog测试");
+        KLog.i("KLog测试");
+        KLog.d("KLog测试");
+        KLog.e("KLog测试");
+        KLog.a("KLog测试");
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
